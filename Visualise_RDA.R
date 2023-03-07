@@ -36,7 +36,7 @@
 #'     importance of the selected axes in percent). 
 #' @param hjust.label Adjust the horizontal position of the label (displaying the
 #'     importance of the selected axes in percent). 
-#' @param size.label Size of the label (displaying the stress value).
+#' @param size.label Size of the label.
 #' @param legend.position Where to place the legend (see ggplot2::theme).
 #' @param size.legend Size of the text in legend.
 #' @param size.axis.comp Size of the x-axis text in the component plot.
