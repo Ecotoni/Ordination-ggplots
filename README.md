@@ -10,7 +10,7 @@ creates ggplot layers, and a ggplot object is returned. Additional user
 defined layers can then be added to the output, for fully customized
 plots.  
 Other methods exist on R to achieve similar purposes (see the *ggvegan*
-package, for instance). The present functions are nothing more than what
+package, by Gavin Simpson, for instance). The present functions are nothing more than what
 I have been using routinely over the years.
 
 ## Getting the functions:
