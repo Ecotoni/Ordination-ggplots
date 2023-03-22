@@ -101,12 +101,10 @@ Visualise_RDA <- function(rda, factor = NULL, factor.name = NULL, axis = c("RDA1
                           size.legend = 12, size.axis.comp = 6, ...) {
   ## Sites:
   if (any(display == "sites")) {
-    if (!all(axis %in% colnames(as.data.frame(summary(rda)$sites)))) {
+    if (!all(axis %in% colnames(summary(rda)$cont$importance))) {
       stop("All specified axis must appear in the RDA object")
     }
-    RDA_sites <- as.data.frame(cbind(as.data.frame(summary(rda)$sites)[,axis[1]], 
-                                     as.data.frame(summary(rda)$sites)[,axis[2]]))
-    colnames(RDA_sites) <- axis
+    RDA_sites <- as.data.frame(vegan::scores(rda, choices = axis)$sites)
     if(!is.null(factor)) {
       factor <- as.factor(factor) 
       if (length(factor) != nrow(RDA_sites)) {
@@ -122,7 +120,7 @@ Visualise_RDA <- function(rda, factor = NULL, factor.name = NULL, axis = c("RDA1
   }
   # Add the scores for species data:
   if (any(display == "species")) {
-    RDA_species <- data.frame(summary(rda)$species)
+    RDA_species <- as.data.frame(vegan::scores(rda, choices = axis)$species)
     # Add a column equivalent to the row name to create species labels
     RDA_species$species <- rownames(RDA_species)
   }
